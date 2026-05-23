@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Mari!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Scene 1: Landing -->
+    <section id="scene-landing" class="scene scene-active">
+      <div class="landing-content">
+        <div class="hami-frame">
+          <img src="assets/hami-knife.png" alt="Hami boom with knife" class="hami-knife-img" />
+        </div>
+        <p class="landing-text">Hami boom asks nicely to press start</p>
+        <button id="start-btn" type="button" class="start-btn">Start</button>
+      </div>
+    </section>
+
+    <!-- Scene 2: Animation -->
+    <section id="scene-animation" class="scene">
+      <div class="animation-stage">
+        <div class="platform platform-a"></div>
+        <div class="platform platform-b"></div>
+        <div id="hami-runner" class="hami-runner" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="hami-svg" xmlns="http://www.w3.org/2000/svg">
+            <ellipse class="hami-shadow" cx="60" cy="112" rx="28" ry="6" fill="rgba(0,0,0,0.15)" />
+            <g class="hami-body-group">
+              <ellipse cx="60" cy="78" rx="34" ry="30" fill="#fff" stroke="#111" stroke-width="3" />
+              <path d="M 28 58 Q 60 28 92 58 Q 88 72 60 72 Q 32 72 28 58" fill="#ff7a1a" stroke="#111" stroke-width="3" />
+              <circle cx="38" cy="42" r="10" fill="#ff7a1a" stroke="#111" stroke-width="3" />
+              <circle cx="82" cy="42" r="10" fill="#ff7a1a" stroke="#111" stroke-width="3" />
+              <circle cx="48" cy="76" r="11" fill="#111" />
+              <circle cx="72" cy="76" r="11" fill="#111" />
+              <circle cx="51" cy="73" r="3.5" fill="#fff" />
+              <circle cx="75" cy="73" r="3.5" fill="#fff" />
+              <circle cx="53" cy="78" r="1.5" fill="#fff" />
+              <circle cx="77" cy="78" r="1.5" fill="#fff" />
+              <path d="M 56 88 Q 60 92 64 88" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="30" y1="82" x2="18" y2="80" stroke="#111" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="30" y1="88" x2="18" y2="90" stroke="#111" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="90" y1="82" x2="102" y2="80" stroke="#111" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="90" y1="88" x2="102" y2="90" stroke="#111" stroke-width="2.5" stroke-linecap="round" />
+              <g class="hami-legs">
+                <ellipse class="leg leg-left" cx="48" cy="104" rx="7" ry="5" fill="#fff" stroke="#111" stroke-width="2.5" />
+                <ellipse class="leg leg-right" cx="72" cy="104" rx="7" ry="5" fill="#fff" stroke="#111" stroke-width="2.5" />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div id="explosion" class="explosion" aria-hidden="true">
+          <div class="boom-ring ring-1"></div>
+          <div class="boom-ring ring-2"></div>
+          <div class="boom-ring ring-3"></div>
+          <div class="boom-flash"></div>
+          <span class="boom-text">BOOM!</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 3: Hami background -->
+    <section id="scene-hamibg" class="scene scene-media">
+      <img src="assets/hamibg.jpeg" alt="" class="media-fullscreen" />
+    </section>
+
+    <!-- Scene 4: Video animation 2 -->
+    <section id="scene-video-2" class="scene scene-media">
+      <video id="animation-video-2" class="animation-video" src="assets/animation2.mp4" playsinline preload="auto"></video>
+    </section>
+
+    <!-- Scene 5: Video animation 3 -->
+    <section id="scene-video-3" class="scene scene-media">
+      <video id="animation-video-3" class="animation-video" src="assets/animation3.mp4" playsinline preload="auto"></video>
+    </section>
+
+    <!-- Scene 6: Blackout -->
+    <section id="scene-blackout" class="scene"></section>
+
+    <!-- Scene 7: Cake -->
+    <section id="scene-cake" class="scene">
+      <div class="cake-content">
+        <h1 class="birthday-title">Happy 25th, Mari!</h1>
+        <div class="cake-wrapper">
+          <div class="cake-image-container">
+            <img src="assets/cake.jpeg" alt="Strawberry birthday cake with candles 25" class="cake-img" />
+            <button id="secret-letter-btn" type="button" class="cake-note-hitbox" aria-label="Open letter"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Letter overlay -->
+    <div id="letter-overlay" class="letter-overlay" hidden>
+      <div class="letter-paper" role="dialog" aria-labelledby="letter-heading">
+        <button id="letter-close-btn" type="button" class="letter-close-btn" aria-label="Close letter">&times;</button>
+        <h2 id="letter-heading">For Mari</h2>
+        <div id="letter-body" class="letter-body">
+          <!-- LETTER_TEXT_PLACEHOLDER: Replace the paragraph below with your letter -->
+          <p>Your letter will appear here. Edit <code>js/main.js</code> and set <code>LETTER_TEXT</code>, or replace this HTML block.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio placeholders -->
+  <audio id="explosion-audio" preload="auto">
+    <!-- Replace with your extracted explosion sound from the Hami TikTok video -->
+    <source src="assets/explosion.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="birthday-song" preload="auto">
+    <!-- Replace with your birthday song -->
+    <source src="assets/birthday-song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
