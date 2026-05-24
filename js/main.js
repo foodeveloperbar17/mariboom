@@ -8,9 +8,10 @@
  * - LETTER_TEXT below          → your letter to Mari
  */
 
-const LETTER_TEXT = `Your letter will appear here.
-
-Replace this text in js/main.js by editing the LETTER_TEXT constant.`;
+const LETTER_TEXT = `თქვენო უპუკპუკესობავ. 
+ძალიან მიყვარხარ ჩემო მარი ბუმო და გისურვებ ბევრ ბედნიერებას (რისთვისაც შექმნილი ხარ აშკარად).
+გისურვებ დარჩე ისევ ეგეთი ენერგიული და საიდქვესტური და რაც მთავარია შტაფილოშფერი.
+მიყვარხარ ჩემო ფისო <3`;
 
 const SCENES = {
   landing: document.getElementById("scene-landing"),
@@ -155,7 +156,7 @@ async function runSvgAnimation() {
   await wait(900);
 }
 
-async function showHamiBg(durationMs = 1000) {
+async function showHamiBg(durationMs = 2000) {
   showScene("hamibg");
   await wait(durationMs);
 }
