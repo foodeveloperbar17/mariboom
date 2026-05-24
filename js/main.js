@@ -2,7 +2,7 @@
  * Hami Boom Birthday Site
  *
  * PLACEHOLDERS — replace when ready:
- * - assets/birthday-song.mp3   → your birthday song (plays once when cake appears)
+ * - assets/mari_boom.mp3        → plays once when Start is pressed
  * - assets/hamibg.jpeg         → shown for 1s before animation2.mp4
  * - assets/animation3.mp4      → third animation (plays before cake)
  * - LETTER_TEXT below          → your letter to Mari
@@ -29,7 +29,7 @@ const animationStage = document.querySelector(".animation-stage");
 const animationVideo2 = document.getElementById("animation-video-2");
 const animationVideo3 = document.getElementById("animation-video-3");
 const explosionAudio = document.getElementById("explosion-audio");
-const birthdaySong = document.getElementById("birthday-song");
+const mariBoomSong = document.getElementById("mari-boom-song");
 const secretLetterBtn = document.getElementById("secret-letter-btn");
 const letterOverlay = document.getElementById("letter-overlay");
 const letterBody = document.getElementById("letter-body");
@@ -170,8 +170,6 @@ async function runAnimationSequence() {
   await wait(800);
 
   showScene("cake");
-  birthdaySong.loop = false;
-  playAudio(birthdaySong);
 }
 
 function initLetter() {
@@ -196,6 +194,8 @@ startBtn.addEventListener("click", () => {
   if (started) return;
   started = true;
   startBtn.disabled = true;
+  mariBoomSong.loop = false;
+  playAudio(mariBoomSong);
   runAnimationSequence();
 });
 
