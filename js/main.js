@@ -156,7 +156,7 @@ async function runSvgAnimation() {
   await wait(900);
 }
 
-async function showHamiBg(durationMs = 2000) {
+async function showHamiBg(durationMs = 4000) {
   showScene("hamibg");
   await wait(durationMs);
 }
